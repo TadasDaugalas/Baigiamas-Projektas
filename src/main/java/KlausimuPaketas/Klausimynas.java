@@ -1,15 +1,17 @@
 package KlausimuPaketas;
 
 import java.io.Serializable;
-import java.util.Map;
 
 public class Klausimynas implements Serializable {
   private int klausimoNr;
-  private String klausymoAtsakymas;
+  private String klausimoAtsakymas;
 
-    public Klausimynas(int klausimoNr, String klausymoAtsakymas) {
+    public Klausimynas(int klausimoNr, String klausimoAtsakymas) {
         this.klausimoNr = klausimoNr;
-        this.klausymoAtsakymas = klausymoAtsakymas;
+        this.klausimoAtsakymas = klausimoAtsakymas;
+    }
+    public Klausimynas(){
+
     }
 
     public int getKlausimoNr() {
@@ -20,11 +22,11 @@ public class Klausimynas implements Serializable {
         this.klausimoNr = klausimoNr;
     }
 
-    public String getKlausymoAtsakymas() {
-        return klausymoAtsakymas;
+    public String getKlausimoAtsakymas() {
+        return klausimoAtsakymas;
     }
 
-    public void setKlausymoAtsakymas(String klausymoAtsakymas) {
-        this.klausymoAtsakymas = klausymoAtsakymas;
+    public void setKlausimoAtsakymas(String klausimoAtsakymas) {
+        this.klausimoAtsakymas = klausimoAtsakymas;
     }
 }

@@ -1,7 +1,7 @@
 package KlausimuPaketas;
 
 import java.io.Serializable;
-import java.util.Map;
+
 
 public class Egzaminas implements Serializable {
     private String pavadinimas;
@@ -9,10 +9,12 @@ public class Egzaminas implements Serializable {
     private String tipas;
 
 
+
     public Egzaminas(String pavadinimas, int id, String tipas) {
         this.pavadinimas = pavadinimas;
         this.id = id;
         this.tipas = tipas;
+
     }
 
     public String getPavadinimas() {
