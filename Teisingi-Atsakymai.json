@@ -1,0 +1,14 @@
+{
+  "Egzaminas" : {
+    "pavadinimas" : "OOP pagrindai",
+    "id" : 114,
+    "tipas" : "Testas"
+  },
+  "Teisingi atsakymai" : [ {
+    "klausimoNr" : 1,
+    "klausimoAtsakymas" : "b"
+  }, {
+    "klausimoNr" : 2,
+    "klausimoAtsakymas" : "b"
+  } ]
+}
