@@ -5,12 +5,12 @@ import java.io.Serializable;
 
 public class Egzaminas implements Serializable {
     private String pavadinimas;
-    private int id;
+    private String id;
     private String tipas;
 
 
 
-    public Egzaminas(String pavadinimas, int id, String tipas) {
+    public Egzaminas(String pavadinimas, String id, String tipas) {
         this.pavadinimas = pavadinimas;
         this.id = id;
         this.tipas = tipas;
@@ -25,11 +25,11 @@ public class Egzaminas implements Serializable {
         this.pavadinimas = pavadinimas;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

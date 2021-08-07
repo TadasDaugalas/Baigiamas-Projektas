@@ -24,7 +24,7 @@ public class Atsakymai {
         ObjectMapper mapper = new ObjectMapper();
         Map<String,Object> map= new HashMap<>();
         mapper.enable(SerializationFeature.INDENT_OUTPUT);
-        Egzaminas egzaminas = new Egzaminas("OOP pagrindai",114,"Testas");
+        Egzaminas egzaminas = new Egzaminas("OOP pagrindai","114","Testas");
         map.put("Egzaminas",egzaminas);
         map.put("Teisingi atsakymai",klausimai);
         mapper.writeValue(file,map);

@@ -10,16 +10,18 @@ public class Data {
         return vardas;
     }
 
-    public void setVardas(String vardas) {
+    public String setVardas(String vardas) {
         this.vardas = vardas;
+        return vardas;
     }
 
     public String getPavarde() {
         return pavarde;
     }
 
-    public void setPavarde(String pavarde) {
+    public String setPavarde(String pavarde) {
         this.pavarde = pavarde;
+        return pavarde;
     }
 
     public String getId() {

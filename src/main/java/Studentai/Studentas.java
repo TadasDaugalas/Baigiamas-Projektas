@@ -5,9 +5,9 @@ import java.io.Serializable;
 public class Studentas implements Serializable {
     private String vardas;
     private String pavarde;
-    private int id;
+    private String id;
 
-    public Studentas(String vardas, String pavarde, int id) {
+    public Studentas(String vardas, String pavarde, String id) {
         this.vardas = vardas;
         this.pavarde = pavarde;
         this.id = id;
@@ -29,11 +29,11 @@ public class Studentas implements Serializable {
         this.pavarde = pavarde;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 }

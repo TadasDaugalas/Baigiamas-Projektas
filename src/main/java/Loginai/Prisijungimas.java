@@ -5,21 +5,29 @@ import java.util.Scanner;
 
 public class Prisijungimas {
     Data data = new Data();
-    Scanner sc = new Scanner(System.in);
+    public Scanner sc = new Scanner(System.in);
     Boolean check;
 
-    public void saveData(Map<String, String> map, Scanner sc) {
+    public void saveData(Map<String, Object> map, Scanner sc) {
 
         System.out.println("Iveskite varda");
-        String customerName = data.setId(sc.nextLine());
-        if (!chekExisted(map, customerName)) {
-            return;
-        }
+        String customerName = data.setVardas(sc.nextLine());
+        System.out.println("Iveskite pavarde");
+        String pavarde = data.setPavarde(sc.nextLine());
+
+                System.out.println("Iveskite Id");
+                String id = data.setId(sc.nextLine());
+                if (!chekExisted(map, id)) {
+                    return;
+                }
+
+
+
         System.out.println("Iveskite slaptažodi");
         String customerPassword = data.setSlaptazodis(sc.nextLine());
         System.out.println("Pakartokite slaptažodi");
         if (customerPassword.equals(sc.nextLine())) {
-            map.put(customerName, customerPassword);
+            map.put(id, customerPassword);
         } else {
             System.out.println("Slaptažodis neteisingas");
             return;
@@ -27,15 +35,15 @@ public class Prisijungimas {
 
     }
 
-    public void getData(Map<String, String> map, Scanner scanner) {
-        System.out.println("Iveskite varda");
+    public void getData(Map<String, Object> map, Scanner scanner) {
+        System.out.println("Iveskite Id");
         String name = scanner.nextLine();
         System.out.println();
-        for (Map.Entry<String, String> entry : map.entrySet()) {
+        for (Map.Entry<String, Object> entry : map.entrySet()) {
             if (entry.getKey().equals(name)) {
                 System.out.println("Iveskite slaptažodi " + entry.getKey());
                 if (entry.getValue().equals(sc.nextLine())) {
-                    System.out.println("Sveikiname prisijungus");
+                    System.out.println("Sveikiname prisijungus"+data.getVardas()+" " +data.getPavarde());
                     return;
                 } else {
                     System.out.println("Slaptažodis neteisingas");
@@ -50,10 +58,10 @@ public class Prisijungimas {
         }
     }
 
-    public Boolean chekExisted(Map<String, String> map, String name) {
-        for (Map.Entry<String, String> entry : map.entrySet()) {
+    public Boolean chekExisted(Map<String, Object> map, String name) {
+        for (Map.Entry<String, Object> entry : map.entrySet()) {
             if (entry.getKey().equals(name)) {
-                System.out.println("Vardas jau egzistuoja");
+                System.out.println("Asmuo jau egzistuoja");
                 return false;
             }
         }

@@ -2,8 +2,6 @@ package KlausimuPaketas;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
