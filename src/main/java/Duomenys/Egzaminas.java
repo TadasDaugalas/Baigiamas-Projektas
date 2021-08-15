@@ -1,4 +1,4 @@
-package KlausimuPaketas;
+package Duomenys;
 
 import java.io.Serializable;
 
@@ -39,5 +39,14 @@ public class Egzaminas implements Serializable {
 
     public void setTipas(String tipas) {
         this.tipas = tipas;
+    }
+
+    @Override
+    public String toString() {
+        return "Egzaminas{" +
+                "pavadinimas='" + pavadinimas + '\'' +
+                ", id='" + id + '\'' +
+                ", tipas='" + tipas + '\'' +
+                '}';
     }
 }

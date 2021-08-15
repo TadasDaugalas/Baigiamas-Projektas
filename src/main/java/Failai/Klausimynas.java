@@ -1,4 +1,4 @@
-package KlausimuPaketas;
+package Failai;
 
 import java.io.Serializable;
 import java.util.HashMap;

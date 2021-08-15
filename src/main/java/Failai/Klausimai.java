@@ -1,8 +1,10 @@
-package KlausimuPaketas;
+package Failai;
 
+import Duomenys.Atsakymai;
+import Duomenys.Egzaminas;
 import Loginai.Data;
 import Loginai.Prisijungimas;
-import Studentai.Studentas;
+import Duomenys.Studentas;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import java.io.File;
@@ -32,13 +34,13 @@ public class Klausimai {
 
         mapper.enable(SerializationFeature.INDENT_OUTPUT);
         List<Klausimynas> klausimynas = Arrays.asList(new Klausimynas(1,"a"),new Klausimynas(2,"b"));
-//        Studentas studentas = new Studentas("Jonas", "Petraitis", "154");
-//        Egzaminas egzaminas = new Egzaminas("OOP pagrindai","1","Testas");
-//        map.put("Studentas",studentas);
-//        map.put("Egzaminas",egzaminas);
-        klausimai.map.put("Atsakymai",klausimynas);
+        Studentas studentas = new Studentas("Jonas", "Petraitis", "154");
+        Egzaminas egzaminas = new Egzaminas("OOP pagrindai","1","Testas");
+        klausimai.dėstytojas.put("Studentas",studentas);
+        klausimai.dėstytojas.put("Egzaminas",egzaminas);
+        klausimai.dėstytojas.put("Atsakymai",klausimynas);
         Atsakymai atsakymai = new Atsakymai();
-        atsakymai.teisingiAtsakymai();
+
         Prisijungimas prisijungimas = new Prisijungimas();
         while (klausimai.check){
             System.out.println("1 - Prisijungti");
@@ -57,14 +59,14 @@ public class Klausimai {
                     System.out.println("2 - Studentas ");
                     switch (prisijungimas.sc.nextLine()){
                         case "1":prisijungimas.saveData(klausimai.dėstytojas,prisijungimas.sc);
-                        klausimai.map.put("Dėstytojas",new Studentas(klausimai.data.getVardas(), klausimai.data.getPavarde(),klausimai.data.getId()));break;
+                        klausimai.dėstytojas.put("Dėstytojas",new Studentas(klausimai.data.getVardas(), klausimai.data.getPavarde(),klausimai.data.getId()));break;
                         case "2":prisijungimas.saveData(klausimai.dėstytojas,prisijungimas.sc);
-                           klausimai.map.put("Studentas",new Studentas(klausimai.data.getVardas(), klausimai.data.getPavarde(),klausimai.data.getId()));break;
+                           klausimai.dėstytojas.put("Studentas",new Studentas(klausimai.data.getVardas(), klausimai.data.getPavarde(),klausimai.data.getId()));break;
                     }break;
                 case "3" : klausimai.check=false;
             }
         }
-        mapper.writeValue(file,klausimai.map);
+        mapper.writeValue(file,klausimai.dėstytojas);
 
     }
 }

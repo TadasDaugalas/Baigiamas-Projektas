@@ -1,13 +1,11 @@
-package Studentai;
+package Duomenys;
 
-import java.io.Serializable;
-
-public class Studentas implements Serializable {
+public class Destytojas {
     private String vardas;
     private String pavarde;
     private String id;
 
-    public Studentas(String vardas, String pavarde, String id) {
+    public Destytojas(String vardas, String pavarde, String id) {
         this.vardas = vardas;
         this.pavarde = pavarde;
         this.id = id;
@@ -35,5 +33,14 @@ public class Studentas implements Serializable {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Studentas{" +
+                "vardas='" + vardas + '\'' +
+                ", pavarde='" + pavarde + '\'' +
+                ", id='" + id + '\'' +
+                '}';
     }
 }

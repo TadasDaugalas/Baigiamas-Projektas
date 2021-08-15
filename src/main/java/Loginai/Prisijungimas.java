@@ -1,5 +1,6 @@
 package Loginai;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -11,16 +12,15 @@ public class Prisijungimas {
     public void saveData(Map<String, Object> map, Scanner sc) {
 
         System.out.println("Iveskite varda");
-        String customerName = data.setVardas(sc.nextLine());
+        data.setVardas(sc.nextLine());
         System.out.println("Iveskite pavarde");
-        String pavarde = data.setPavarde(sc.nextLine());
+        data.setPavarde(sc.nextLine());
 
                 System.out.println("Iveskite Id");
                 String id = data.setId(sc.nextLine());
                 if (!chekExisted(map, id)) {
                     return;
                 }
-
 
 
         System.out.println("Iveskite slaptažodi");
