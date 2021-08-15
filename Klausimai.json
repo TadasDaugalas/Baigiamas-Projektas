@@ -1,0 +1,25 @@
+{
+  "Egzaminas" : {
+    "pavadinimas" : "OOP pagrindai",
+    "id" : "1",
+    "tipas" : "Testas"
+  },
+  "Atsakymai" : [ {
+    "klausimoNr" : 1,
+    "klausimoAtsakymas" : "a",
+    "map" : {
+      "1" : "a"
+    }
+  }, {
+    "klausimoNr" : 2,
+    "klausimoAtsakymas" : "b",
+    "map" : {
+      "2" : "b"
+    }
+  } ],
+  "Studentas" : {
+    "vardas" : "Jonas",
+    "pavarde" : "Petraitis",
+    "id" : "154"
+  }
+}
