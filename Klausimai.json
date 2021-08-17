@@ -18,8 +18,9 @@
     }
   } ],
   "Studentas" : {
-    "vardas" : "Jonas",
-    "pavarde" : "Petraitis",
-    "id" : "154"
-  }
+    "vardas" : null,
+    "pavarde" : null,
+    "id" : null
+  },
+  "125" : "a"
 }

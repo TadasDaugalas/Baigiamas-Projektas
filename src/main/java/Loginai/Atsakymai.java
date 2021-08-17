@@ -1,6 +1,8 @@
-package Duomenys;
+package Loginai;
 
-public class Atsakymai {
+import java.util.List;
+
+public class Atsakymai <K,V>{
 //    public void teisingiAtsakymai() throws IOException {
 //        FailuTvarkyklė failuTvarkyklė = new FailuTvarkyklė();
 //        File failas = failuTvarkyklė.kurtiNaujaFaila("Tesisingi-Atsakymai.json");
@@ -13,4 +15,10 @@ public class Atsakymai {
 //        map.put("Teisingi atsakymai",klausimai);
 //        mapper.writeValue(failas,map);
 //    }
+    private K k;
+    private V v;
+
+    public Atsakymai() {
+    }
+
 }
