@@ -5,6 +5,7 @@ import Loginai.Prisijungimas;
 import Servisai.Enumai.MeniuStatusas;
 import Servisai.Enumai.VartotojoTipas;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -39,53 +40,23 @@ public class MeniuServisas {
                     VartotojoServisas vartotojoServisas = new VartotojoServisas();
                     Optional<Vartotojas> vartotojas = vartotojoServisas.prisijungiti(slapyvardis, slaptazodis);
 
-                    if (vartotojas.isPresent())
+                    if (vartotojas.isPresent()) {
                         statusas = vartotojas.get().getVartotojoTipas() == VartotojoTipas.DESTYTOJAS
                                 ? MeniuStatusas.DESTYTOJAS
                                 : MeniuStatusas.STUDENTAS;
-                    else {
+                    } else {
                         System.out.println("Neteisingas slapyvardis ar/ir slaptazodis");
                         statusas = MeniuStatusas.NEPRISIJUNGES;
                     }
 
                     break;
                 case DESTYTOJAS:
-                    System.out.println("Labas destytokas");
+                    rodytiDestytojoMeniu();
+                    komanda = apdorotiKomanda(1);
+                    apdorotiDestytojoKomanda(komanda);
                     break;
             }
         }
-//        boolean testi = true;
-//        while (testi) {
-//            System.out.println("1 - Prisijungti");
-//            //System.out.println("2 - Registruotis");
-//            System.out.println("3 - Išeiti");
-//            switch (prisijungimas.sc.nextLine()) {
-//                case "1":
-//                    System.out.println("1 - Destytojas");
-//                    System.out.println("2 - Studentas ");
-//                    switch (prisijungimas.sc.nextLine()) {
-//                        case "1":
-//                            prisijungimas.getData(dėstytojai, prisijungimas.sc);
-//                            break;
-//                        case "2":
-//                            prisijungimas.getData(dėstytojai, prisijungimas.sc);
-//                            break;
-//                    }
-//                    break;
-////                case "2" :
-////                    System.out.println("1 - Destytojas");
-////                    System.out.println("2 - Studentas ");
-////                    switch (prisijungimas.sc.nextLine()){
-////                        case "1":prisijungimas.saveData(dėstytojai,prisijungimas.sc);
-////                            dėstytojai.put("Dėstytojas",new Studentas(meniu.data.getVardas(), meniu.data.getPavarde(), meniu.data.getId()));break;
-////                        case "2":prisijungimas.saveData(meniu.dėstytojas,prisijungimas.sc);
-////                           meniu.dėstytojas.put("Studentas",new Studentas(meniu.data.getVardas(), meniu.data.getPavarde(), meniu.data.getId()));break;
-////                    }break;
-//                case "3":
-//                    testi = false;
-//
-//            }
-//        }
     }
 
 
@@ -94,13 +65,31 @@ public class MeniuServisas {
         //System.out.println("2 - Registruotis");
         System.out.println("0 - Išeiti");
     }
+    private void rodytiDestytojoMeniu() {
+        System.out.println("1 - Skaiciuoti egzamino rezultata");
+        System.out.println("0 - Išeiti");
+    }
 
     private void apdorotiNeprisijungusioVartotojoKomanda(int komanda) {
         if (komanda == 1) {
             statusas = MeniuStatusas.SLAPYVARDIS_SLAPTAZODIS;
         }
     }
-
+    private void apdorotiDestytojoKomanda(int komanda) {
+        if (komanda == 0) {
+            statusas = MeniuStatusas.NEPRISIJUNGES;
+        } else if (komanda == 1) {
+            EgzaminuServisas egzaminuServisas = new EgzaminuServisas();
+            try {
+                egzaminuServisas.skaiciuotiRezultatus("C:\\Tadas\\Desktop\\Java kursai\\BaigiamasProjektas\\src\\main\\resources\\Atsakymai",
+                        "C:\\Tadas\\Desktop\\Java kursai\\BaigiamasProjektas\\src\\main\\resources\\Teisingi-Atsakymai.json");
+            } catch (Exception e){
+                System.out.println("Nepavyko " + e.getMessage());
+                return;
+            }
+            System.out.println("Rezultato failas sukurtas");
+        }
+    }
     private int apdorotiKomanda(int max) {
         boolean testi = true;
         int skaicius=0;

@@ -7,6 +7,9 @@ public class Studentas implements Serializable {
     private String pavarde;
     private String id;
 
+    public Studentas() {
+    }
+
     public Studentas(String vardas, String pavarde, String id) {
         this.vardas = vardas;
         this.pavarde = pavarde;

@@ -24,7 +24,4 @@ public class FailuTvarkyklė {
            System.out.println("Nepavyko irašyti i failą");
        }
    }
-   public void readFromFile(String fileName){
-
-   }
 }

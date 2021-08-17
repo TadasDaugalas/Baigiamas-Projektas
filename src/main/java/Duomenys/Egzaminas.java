@@ -8,7 +8,8 @@ public class Egzaminas implements Serializable {
     private String id;
     private String tipas;
 
-
+    public Egzaminas() {
+    }
 
     public Egzaminas(String pavadinimas, String id, String tipas) {
         this.pavadinimas = pavadinimas;

@@ -22,4 +22,11 @@ public class TeisingiAtsakymai {
         this.atsakymai = atsakymai;
     }
 
+    @Override
+    public String toString() {
+        return "TeisingiAtsakymai{" +
+                "egzaminas=" + egzaminas +
+                ", atsakymai=" + atsakymai +
+                '}';
+    }
 }

@@ -23,4 +23,11 @@ public class Atsakymas<K,V> {
             return atsakymas;
         }
 
+    @Override
+    public String toString() {
+        return "Atsakymas{" +
+                "klausimas=" + klausimas +
+                ", atsakymas=" + atsakymas +
+                '}';
+    }
 }
