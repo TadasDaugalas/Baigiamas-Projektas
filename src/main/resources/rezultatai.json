@@ -3,12 +3,12 @@
     "id" : "124",
     "pavadinimas" : "OOP pagrindai",
     "studentuRezultatai" : [ {
-      "id" : "1256",
+      "id" : 1256,
       "vardas" : "Vardenis",
       "pavarde" : "Pavardenis",
       "ivertinimas" : 8
     }, {
-      "id" : "125",
+      "id" : 125,
       "vardas" : "Tadas",
       "pavarde" : "Pavardenis",
       "ivertinimas" : 10

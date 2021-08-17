@@ -5,12 +5,12 @@ import java.io.Serializable;
 public class Studentas implements Serializable {
     private String vardas;
     private String pavarde;
-    private String id;
+    private int id;
 
     public Studentas() {
     }
 
-    public Studentas(String vardas, String pavarde, String id) {
+    public Studentas(String vardas, String pavarde, int id) {
         this.vardas = vardas;
         this.pavarde = pavarde;
         this.id = id;
@@ -32,11 +32,11 @@ public class Studentas implements Serializable {
         this.pavarde = pavarde;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

@@ -3,7 +3,7 @@ package Duomenys;
 import java.io.Serializable;
 
 public class StudentoRezultatas implements Serializable {
-    private String id;
+    private int id;
     private String vardas;
     private String pavarde;
     private int ivertinimas;
@@ -11,11 +11,11 @@ public class StudentoRezultatas implements Serializable {
     public StudentoRezultatas() {
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

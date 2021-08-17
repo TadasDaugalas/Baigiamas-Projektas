@@ -7,14 +7,34 @@ import java.io.Serializable;
 public class Vartotojas implements Serializable {
     private String slapyvardis;
     private String slaptazodis;
-    private String id;
+    private int id;
     private VartotojoTipas vartotojoTipas;
+    private String vardas;
+    private String pavarde;
 
-    public Vartotojas(String id, String slapyvardis, String slaptazodis,  VartotojoTipas vartotojoTipas) {
+    public String getVardas() {
+        return vardas;
+    }
+
+    public void setVardas(String vardas) {
+        this.vardas = vardas;
+    }
+
+    public String getPavarde() {
+        return pavarde;
+    }
+
+    public void setPavarde(String pavarde) {
+        this.pavarde = pavarde;
+    }
+
+    public Vartotojas(String slapyvardis, String slaptazodis, int id, VartotojoTipas vartotojoTipas, String vardas, String pavarde) {
         this.slapyvardis = slapyvardis;
         this.slaptazodis = slaptazodis;
         this.id = id;
         this.vartotojoTipas = vartotojoTipas;
+        this.vardas = vardas;
+        this.pavarde = pavarde;
     }
 
     public Vartotojas() {
@@ -44,11 +64,11 @@ public class Vartotojas implements Serializable {
         this.slaptazodis = slaptazodis;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 }

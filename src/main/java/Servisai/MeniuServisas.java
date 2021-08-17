@@ -16,11 +16,12 @@ public class MeniuServisas {
     public void Rodyti() {
         int komanda;
         boolean testi = true;
+        VartotojoServisas vartotojoServisas = new VartotojoServisas("C:\\Tadas\\Desktop\\Java kursai\\BaigiamasProjektas\\src\\main\\resources");
         while (testi) {
             switch (statusas) {
                 case NEPRISIJUNGES:
                     rodytiNeprisijungusioVartotojoMeniu();
-                    komanda = apdorotiKomanda(1);
+                    komanda = apdorotiKomanda(2);
                     if (komanda == 0) {
                         System.out.println("Viso gero");
                         testi = false;
@@ -33,7 +34,6 @@ public class MeniuServisas {
                     System.out.println("Iveskite slaptazodi");
                     String slaptazodis  =sc.nextLine();
 
-                    VartotojoServisas vartotojoServisas = new VartotojoServisas();
                     Optional<Vartotojas> vartotojas = vartotojoServisas.prisijungiti(slapyvardis, slaptazodis);
 
                     if (vartotojas.isPresent()) {
@@ -51,6 +51,28 @@ public class MeniuServisas {
                     komanda = apdorotiKomanda(1);
                     apdorotiDestytojoKomanda(komanda);
                     break;
+                case REGISTRACIJA:
+                    Vartotojas naujasVartotojas = new Vartotojas();
+                    System.out.println("Iveskite varda");
+                    naujasVartotojas.setVardas(sc.nextLine());
+                    System.out.println("Iveskite pavarde");
+                    naujasVartotojas.setPavarde(sc.nextLine());
+                    System.out.println("Iveskite slapyvardi");
+                    naujasVartotojas.setSlapyvardis(sc.nextLine());
+                    System.out.println("Iveskite slaptazodi");
+                    naujasVartotojas.setSlaptazodis(sc.nextLine());
+                    try {
+                        vartotojoServisas.registruoti(naujasVartotojas);
+                        statusas=MeniuStatusas.STUDENTAS;
+                    }catch (Exception e){
+                        System.out.println("Nepavyko prisiregistruoti" + e.getMessage());
+                        statusas=MeniuStatusas.NEPRISIJUNGES;
+                    }
+                    break;
+                case STUDENTAS:
+                    System.out.println("Sveikas Studente");
+                    statusas=MeniuStatusas.NEPRISIJUNGES;
+                    break;
             }
         }
     }
@@ -58,7 +80,7 @@ public class MeniuServisas {
 
     private void rodytiNeprisijungusioVartotojoMeniu() {
         System.out.println("1 - Prisijungti");
-        //System.out.println("2 - Registruotis");
+        System.out.println("2 - Registruotis");
         System.out.println("0 - Išeiti");
     }
     private void rodytiDestytojoMeniu() {
@@ -69,6 +91,8 @@ public class MeniuServisas {
     private void apdorotiNeprisijungusioVartotojoKomanda(int komanda) {
         if (komanda == 1) {
             statusas = MeniuStatusas.SLAPYVARDIS_SLAPTAZODIS;
+        }else if (komanda==2){
+            statusas =MeniuStatusas.REGISTRACIJA;
         }
     }
     private void apdorotiDestytojoKomanda(int komanda) {
