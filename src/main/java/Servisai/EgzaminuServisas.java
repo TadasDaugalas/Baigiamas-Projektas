@@ -34,7 +34,7 @@ public class EgzaminuServisas {
             throw new Exception("Nera teisingu atsakymo failo");
         }
 
-        List<StudentoEgzaminas> studentoEgzaminai = nuskaitytiStudentuEgzaminus(atsakymuFailuKeliai);
+        List<StudentoAtsakymas> studentoEgzaminai = nuskaitytiStudentuEgzaminus(atsakymuFailuKeliai);
         TeisingiAtsakymai teisingiAtsakymai = nuskaitytiTeisingusAtsakymus(teisinguAtsakymuFailas);
 //        spausdinti(studentoEgzaminai,teisingiAtsakymai);
 
@@ -42,11 +42,11 @@ public class EgzaminuServisas {
         issaugotiEgzaminuRezultatus(teisinguAtsakymuFailas.getParent(), egzaminuRezultatai);
     }
 
-    private List<StudentoEgzaminas> nuskaitytiStudentuEgzaminus (List<String> failuKeliai) throws IOException {
-        List<StudentoEgzaminas> studentoEgzaminas = new ArrayList<>();
+    private List<StudentoAtsakymas> nuskaitytiStudentuEgzaminus (List<String> failuKeliai) throws IOException {
+        List<StudentoAtsakymas> studentoEgzaminas = new ArrayList<>();
         ObjectMapper mapper = new ObjectMapper();
         for (String failoKelias : failuKeliai) {
-            studentoEgzaminas.add(mapper.readValue(new File(failoKelias), StudentoEgzaminas.class));
+            studentoEgzaminas.add(mapper.readValue(new File(failoKelias), StudentoAtsakymas.class));
         }
 
         return studentoEgzaminas;
@@ -57,11 +57,11 @@ public class EgzaminuServisas {
         return  mapper.readValue(failas, TeisingiAtsakymai.class);
     }
 
-    private void spausdinti(List<StudentoEgzaminas> egzaminai,TeisingiAtsakymai teisingiAtsakymai){
+    private void spausdinti(List<StudentoAtsakymas> egzaminai, TeisingiAtsakymai teisingiAtsakymai){
         egzaminai.forEach(System.out::println);
         System.out.println(teisingiAtsakymai);
     }
-    private EgzaminuRezultatai apskaiciuotiEgzaminuRezultatai(List<StudentoEgzaminas> egzaminai, TeisingiAtsakymai teisingiAtsakymai){
+    private EgzaminuRezultatai apskaiciuotiEgzaminuRezultatai(List<StudentoAtsakymas> egzaminai, TeisingiAtsakymai teisingiAtsakymai){
         EgzaminuRezultatai egzaminuRezultatai = new EgzaminuRezultatai();
         egzaminuRezultatai.setEgzaminai(new ArrayList<>());
 
@@ -71,7 +71,7 @@ public class EgzaminuServisas {
         studentuEgzaminoRezultatai.setStudentuRezultatai(new ArrayList<>());
         egzaminuRezultatai.getEgzaminai().add(studentuEgzaminoRezultatai);
 
-        for (StudentoEgzaminas studentoEgzaminas: egzaminai){
+        for (StudentoAtsakymas studentoEgzaminas: egzaminai){
             if(studentoEgzaminas.getEgzaminas().getId().equals(teisingiAtsakymai.getEgzaminas().getId())){
                 StudentoRezultatas studentoRezultatas = new StudentoRezultatas();
                 studentoRezultatas.setId(studentoEgzaminas.getStudentas().getId());

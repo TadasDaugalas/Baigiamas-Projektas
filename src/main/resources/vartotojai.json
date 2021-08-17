@@ -5,4 +5,11 @@
   "vartotojoTipas" : "DESTYTOJAS",
   "vardas" : "Tadas",
   "pavarde" : "Daugalas"
+}, {
+  "slapyvardis" : "jonas",
+  "slaptazodis" : "bal",
+  "id" : 2,
+  "vartotojoTipas" : "STUDENTAS",
+  "vardas" : "Jonas",
+  "pavarde" : "Bal"
 } ]

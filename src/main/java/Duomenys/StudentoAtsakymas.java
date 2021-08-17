@@ -1,9 +1,9 @@
 package Duomenys;
 
-public class StudentoEgzaminas extends TeisingiAtsakymai{
+public class StudentoAtsakymas extends TeisingiAtsakymai{
     private Studentas studentas;
 
-    public StudentoEgzaminas() {
+    public StudentoAtsakymas() {
     }
 
     public Studentas getStudentas() {

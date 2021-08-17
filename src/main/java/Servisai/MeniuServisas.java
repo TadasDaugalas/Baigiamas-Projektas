@@ -4,13 +4,12 @@ import Duomenys.Vartotojas;
 import Loginai.Prisijungimas;
 import Servisai.Enumai.MeniuStatusas;
 import Servisai.Enumai.VartotojoTipas;
+
 import java.util.Optional;
 import java.util.Scanner;
 
 public class MeniuServisas {
     MeniuStatusas statusas = MeniuStatusas.NEPRISIJUNGES;
-    Prisijungimas prisijungimas = new Prisijungimas();
-
     Scanner sc = new Scanner(System.in);
 
     public void Rodyti() {
@@ -30,9 +29,9 @@ public class MeniuServisas {
                     break;
                 case SLAPYVARDIS_SLAPTAZODIS:
                     System.out.println("Iveskite slapyvardi");
-                    String slapyvardis  = sc.nextLine();
+                    String slapyvardis = sc.nextLine();
                     System.out.println("Iveskite slaptazodi");
-                    String slaptazodis  =sc.nextLine();
+                    String slaptazodis = sc.nextLine();
 
                     Optional<Vartotojas> vartotojas = vartotojoServisas.prisijungiti(slapyvardis, slaptazodis);
 
@@ -63,15 +62,15 @@ public class MeniuServisas {
                     naujasVartotojas.setSlaptazodis(sc.nextLine());
                     try {
                         vartotojoServisas.registruoti(naujasVartotojas);
-                        statusas=MeniuStatusas.STUDENTAS;
-                    }catch (Exception e){
+                        statusas = MeniuStatusas.STUDENTAS;
+                    } catch (Exception e) {
                         System.out.println("Nepavyko prisiregistruoti" + e.getMessage());
-                        statusas=MeniuStatusas.NEPRISIJUNGES;
+                        statusas = MeniuStatusas.NEPRISIJUNGES;
                     }
                     break;
                 case STUDENTAS:
                     System.out.println("Sveikas Studente");
-                    statusas=MeniuStatusas.NEPRISIJUNGES;
+                    statusas = MeniuStatusas.NEPRISIJUNGES;
                     break;
             }
         }
@@ -83,6 +82,7 @@ public class MeniuServisas {
         System.out.println("2 - Registruotis");
         System.out.println("0 - Išeiti");
     }
+
     private void rodytiDestytojoMeniu() {
         System.out.println("1 - Skaiciuoti egzamino rezultata");
         System.out.println("0 - Išeiti");
@@ -91,10 +91,11 @@ public class MeniuServisas {
     private void apdorotiNeprisijungusioVartotojoKomanda(int komanda) {
         if (komanda == 1) {
             statusas = MeniuStatusas.SLAPYVARDIS_SLAPTAZODIS;
-        }else if (komanda==2){
-            statusas =MeniuStatusas.REGISTRACIJA;
+        } else if (komanda == 2) {
+            statusas = MeniuStatusas.REGISTRACIJA;
         }
     }
+
     private void apdorotiDestytojoKomanda(int komanda) {
         if (komanda == 0) {
             statusas = MeniuStatusas.NEPRISIJUNGES;
@@ -103,16 +104,17 @@ public class MeniuServisas {
             try {
                 egzaminuServisas.skaiciuotiRezultatus("C:\\Tadas\\Desktop\\Java kursai\\BaigiamasProjektas\\src\\main\\resources\\Atsakymai",
                         "C:\\Tadas\\Desktop\\Java kursai\\BaigiamasProjektas\\src\\main\\resources\\Teisingi-Atsakymai.json");
-            } catch (Exception e){
+            } catch (Exception e) {
                 System.out.println("Nepavyko " + e.getMessage());
                 return;
             }
             System.out.println("Rezultato failas sukurtas");
         }
     }
+
     private int apdorotiKomanda(int max) {
         boolean testi = true;
-        int skaicius=0;
+        int skaicius = 0;
         do {
             String a = sc.nextLine();
 
@@ -123,7 +125,7 @@ public class MeniuServisas {
                 continue;
             }
             testi = !(0 <= skaicius && skaicius <= max);
-            if(testi){
+            if (testi) {
                 System.out.println("Klaida, tokios komandos nėra");
             }
         } while (testi);

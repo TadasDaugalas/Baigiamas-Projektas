@@ -24,7 +24,7 @@ public class VartotojoServisas {
         this.kelias=kelias;
     }
     public Optional<Vartotojas> prisijungiti(String slapyvardis, String slaptazodis){
-       return vartotojuSarasas.stream().findFirst().filter(v->v.getSlapyvardis().equals(slapyvardis) && v.getSlaptazodis().equals(slaptazodis));
+       return vartotojuSarasas.stream().filter(v->v.getSlapyvardis().equals(slapyvardis) && v.getSlaptazodis().equals(slaptazodis)).findFirst();
     }
     private void nuskaitytiVartotojus(String kelias) {
         ObjectMapper mapper = new ObjectMapper();
@@ -48,7 +48,7 @@ public class VartotojoServisas {
             throw new Exception("Toks slapyvardis egzistuoja");
         }
         vartotojas.setVartotojoTipas(VartotojoTipas.STUDENTAS);
-        vartotojas.setId(vartotojuSarasas.stream().map(v->v.getId()).max(Comparator.naturalOrder()).orElse(1));
+        vartotojas.setId(vartotojuSarasas.stream().map(v->v.getId()).max(Comparator.naturalOrder()).orElse(1)+1);
         vartotojuSarasas.add(vartotojas);
         issaugotiVartotojus();
         return vartotojas;
