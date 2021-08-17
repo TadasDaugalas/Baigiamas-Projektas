@@ -4,10 +4,6 @@ import Duomenys.Vartotojas;
 import Loginai.Prisijungimas;
 import Servisai.Enumai.MeniuStatusas;
 import Servisai.Enumai.VartotojoTipas;
-
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Optional;
 import java.util.Scanner;
 
