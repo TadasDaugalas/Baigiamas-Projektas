@@ -1,7 +1,6 @@
 package Servisai;
 
 import Duomenys.Vartotojas;
-import Loginai.Prisijungimas;
 import Servisai.Enumai.MeniuStatusas;
 import Servisai.Enumai.VartotojoTipas;
 

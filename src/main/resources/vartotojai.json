@@ -12,4 +12,18 @@
   "vartotojoTipas" : "STUDENTAS",
   "vardas" : "Jonas",
   "pavarde" : "Bal"
+}, {
+  "slapyvardis" : "user",
+  "slaptazodis" : "user",
+  "id" : 3,
+  "vartotojoTipas" : "STUDENTAS",
+  "vardas" : "Tadas",
+  "pavarde" : "Daugalas"
+}, {
+  "slapyvardis" : "bri",
+  "slaptazodis" : "bri",
+  "id" : 4,
+  "vartotojoTipas" : "STUDENTAS",
+  "vardas" : "Brigita",
+  "pavarde" : "Daugaliene"
 } ]
